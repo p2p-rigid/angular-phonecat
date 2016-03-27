@@ -4,3 +4,12 @@ body {
   padding-top: 20px;
 }
 
+div.album {
+	float:left;
+	width:300px;
+	margin-right:10px;
+	padding:10px;
+	min-height:200px
+}
+
+

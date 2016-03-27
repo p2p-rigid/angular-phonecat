@@ -1,28 +1,46 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="albumSharingApp">
 <head>
   <meta charset="utf-8">
   <title>Google Phone Gallery</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>
 </head>
 <body>
+	<div ng-controller="AlbumController">
+		<input type="text" placeholder="search for..." ng-model="searchFor" size="30" style="padding:3px;margin:5px"></input>	
+		<p style="margin:3px">There are {{albums.length}} albums</p>
+		<div class="album panel panel-primary" ng-repeat="album in albums|filter:searchFor|orderBy:'date'" >
+			<div class="panel-heading">
+				<div style="float:right">{{album.date}}</div>	
+				{{album.title}} 
+			</div>
+			<p style="padding:5px">{{album.description}}</p>
+		</div>
+	</div>
 
-  <ul>
-    <li>
-      <span>Nexus S</span>
-      <p>
-        Fast just got faster with Nexus S.
-      </p>
-    </li>
-    <li>
-      <span>Motorola XOOM™ with Wi-Fi</span>
-      <p>
-        The Next, Next Generation tablet.
-      </p>
-    </li>
-  </ul>
-
+	<div style="clear:left"></div>
+	<h3>Add a new album</h3>
+	<div class="album panel panel-default" style="width:350px;">
+		<div class="panel-heading">
+			<div style="float:right">
+				<input type="text" placeholder="yyyy/mm/dd" size="10"></input>		
+			</div>
+			<input type="text" placeholder="Type..." size="20"></input>
+		</div>
+		<div class="description">
+			<textarea rows="4" style="width:100%;padding:5px;margin:2px 0 0 0"></textarea>
+		</div>
+	</div>
+	<script>
+		var albumApp = angular.module("albumSharingApp",[]);
+		function AlbumController($scope){
+			$scope.albums = [{name:'Photoes for Melbourn',title:'Melbourn trip',date:'2015-10-12', description:'A wonderful trip'},{name:'Photoes for Brisbane',title:'Brisbane trip',date:'2015-10-12', description:'A wonderful trip'},{name:'Photoes for Perth',title:'Melbourn trip',date:'2015-10-12', description:'A wonderful trip'},{name:'Photoes for Canberra',title:'Melbourn trip',date:'2015-10-12', description:'A wonderful trip'}];
+		}
+		albumApp.controller("AlbumController", AlbumController);
+	</script>
 </body>
 </html>
