@@ -7,9 +7,14 @@ body {
 div.album {
 	float:left;
 	width:300px;
-	margin-right:10px;
-	padding:10px;
+	margin:10px 10px 5px 5px;
+	padding:5px;
 	min-height:200px
+}
+
+div.album div.description {
+	#padding-top: 2px;
+
 }
 
 
