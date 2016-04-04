@@ -9,31 +9,10 @@
   <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/controllers.js"></script>
 </head>
 <body>
 	<ng-view></ng-view>
-	
-	<script>
-		var albumApp = angular.module("albumSharingApp", [ "ngRoute" ]);
-		
-		albumApp.config(function($routeProvider){
-			$routeProvider.when("/albums",{controller: "AlbumController", templateUrl: "album_list_partial.html"})
-						.when("/", {redirectTo: "/albums"})
-						.when("/404_page", {controller: "Controller_404", templateUrl: "404_page_partial.html"})
-						.otherwise({redirectTo: "404_page"});  		
-		});
-		
-		function AlbumController($scope){
-			$scope.new_album = {};
-			$scope.albums = [{name:'Photoes for Melbourn',title:'Melbourn trip',date:'2015-10-12', description:'A wonderful trip'},{name:'Photoes for Brisbane',title:'Brisbane trip',date:'2015-10-12', description:'A wonderful trip'},{name:'Photoes for Perth',title:'Melbourn trip',date:'2015-10-12', description:'A wonderful trip'},{name:'Photoes for Canberra',title:'Melbourn trip',date:'2015-10-12', description:'A wonderful trip'}];
-			$scope.add_album = function(new_album) {
-				console.log(new_album);
-				$scope.albums.push(new_album);
-				$scope.new_album = {};
-			}	
-			
-		}
-		albumApp.controller("AlbumController", AlbumController);
-	</script>
 </body>
 </html>
