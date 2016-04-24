@@ -10,3 +10,5 @@ albumApp.config(function($routeProvider){
 				  .when("/404_page", {controller: "Controller_404", templateUrl: "partials/404_page_partial.html"})
 				  .otherwise({redirectTo: "404_page"});  		
 });
+
+
