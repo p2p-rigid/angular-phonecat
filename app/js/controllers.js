@@ -29,12 +29,16 @@
 			
 	}
 	
+	/*
 	function Controller_404($scope){
 		$scope.error_message = "oops, not working...";
 	}
+	*/
 
 	albumApp.controller("AlbumController", AlbumController);
-	albumApp.controller("Controller_404", Controller_404);
+	albumApp.controller("Controller_404", function($scope, $http){
+		$scope.error_message = "oops, not working...";
+	});
 
 	function isEmpty(str) {
     	return (!str || 0 === str.length);
