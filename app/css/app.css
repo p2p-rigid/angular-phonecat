@@ -13,8 +13,12 @@ div.album {
 }
 
 div.album div.description {
-	#padding-top: 2px;
+	padding-top: 2px;
 
+}
+
+div.album a {
+	color:white;
 }
 
 

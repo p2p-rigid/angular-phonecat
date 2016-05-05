@@ -43,4 +43,8 @@
 	function isEmpty(str) {
     	return (!str || 0 === str.length);
 	}
+
+	function albumValidator(album) {
+		return false;
+	}
 })();
