@@ -4,7 +4,7 @@
 	<div class="album panel panel-primary" ng-repeat="album in albums|filter:{title:searchFor}|orderBy:'date'" >
 		<div class="panel-heading">
 			<div style="float:right">{{album.date}}</div>	
-			<a href="/index.html/#/album/{{album.name}}">
+			<a href="/app/index.html#/album/{{album.name}}">
 				{{album.title}} 
 			</a>
 		</div>
