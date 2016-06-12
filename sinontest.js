@@ -10,7 +10,7 @@ var foo = {
 
 var callback = sinon.spy();
 foo.boo("a", "b", callback);
-assert(callback.called);
+
 
 
 

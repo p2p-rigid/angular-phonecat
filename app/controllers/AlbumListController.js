@@ -2,10 +2,10 @@
 
 /* Controllers */
 (function(){
-	function AlbumController($scope){
+	function AlbumListController($scope,albumProvider){
 		$scope.new_album = {};
 		$scope.add_album_error="";
-		$scope.albums = [{name:'Photoes for Melbourn',title:'Melbourn trip',date:'2015-10-12', description:'A wonderful trip'},{name:'Photoes for Brisbane',title:'Brisbane trip',date:'2015-10-12', description:'A wonderful trip'},{name:'Photoes for Perth',title:'Melbourn trip',date:'2015-10-12', description:'A wonderful trip'},{name:'Photoes for Canberra',title:'Melbourn trip',date:'2015-10-12', description:'A wonderful trip'}];
+		$scope.albums = albumProvider.getAlbums();
 		$scope.add_album = function(new_album) {
 			$scope.validate(new_album);
 			if(_.isEmpty($scope.add_album_error)) {
@@ -35,7 +35,7 @@
 			
 	}
 
-	albumApp.controller("AlbumController", AlbumController);
+	albumApp.controller("AlbumListController", AlbumListController);
 	albumApp.controller("Controller_404", function($scope, $http){
 		$scope.error_message = "oops, not working...";
 	});

@@ -1,4 +1,4 @@
-(function(export) {
+/*(function(export) {
   "use strict";
 
   function Cow(name) {
@@ -13,4 +13,4 @@
       return this.name + " greets " + target;
     }
   };
-})(this);
+})(this); */
